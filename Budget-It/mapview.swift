@@ -1,9 +1,9 @@
 //
 //  ViewController.swift
-//  jack
+//  Frank, Prince, Albert, Michael Zhang, Marley Xiong
 //
-//  Created by Jackie Yan on 2017-11-18.
-//  Copyright © 2017 Jackie Yan. All rights reserved.
+//  Created by Frank Dong on 2018-07-12.
+//  Copyright © 2018 Frank Dong. All rights reserved.
 //
 
 
@@ -36,28 +36,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: {didAllow, error in  })
         
         let content = UNMutableNotificationContent()
-        content.title = "Spendings Alert"
-        if type == "rest" {
-            if let b = UserDefaults.standard.object(forKey: "CurrentExpense2") as? String{
-                let currentBudget = b
-                content.body = "Remember your budget for Food is $" + currentBudget
-            }
+        content.title = "Lab Area Alert"
+        if type == "areaA" {
+                content.body = "You are in Area A - Ayyy"
         }
-        else if type == "enter" {
-            if let b = UserDefaults.standard.object(forKey: "CurrentExpense3") as? String{
-                let currentBudget = b
-                content.body = "Remember your budget for Entertainment is $" + currentBudget
-            }
-            
+        else if type == "areaB" {
+                content.body = "You are in Area B - Be cool!"
             
         }
-        else if type == "retail" {
-            if let b = UserDefaults.standard.object(forKey: "CurrentExpense4") as? String{
-                let currentBudget = b
-                content.body = "Remember your budget for Retail is $" + currentBudget
-            }
-            
+        else if type == "areaC" {
+                content.body = "You are in Area C - Cool Beans!"
         }
+        
         content.badge = 1
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
@@ -105,7 +95,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             
             // region data
             var title = "Jackie's Sports Emporium"
-            type = "retail"
+            type = "areaA"
             //need to specify type of expense
             var coordinate = CLLocationCoordinate2DMake(42.9988376, -81.2784611)
             var regionRadius = 5.0
@@ -128,10 +118,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             
             // region data
             title = "IBM Markham"
-            type = "Software"
+            type = "areaB"
             //need to specify type of expense
             coordinate = CLLocationCoordinate2DMake(43.849096, -79.338395)
-            regionRadius = 5.0
+            regionRadius = 40.0
             
             // setup region
             region = CLCircularRegion(center: CLLocationCoordinate2D(latitude: coordinate.latitude,
@@ -151,7 +141,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             
             // region data
             title = "Zaggy's Tech-Palace"
-            type = "enter"
+            type = "areaC"
             //need to specify type of expense
             coordinate = CLLocationCoordinate2DMake(43.000690, -81.276636)
             regionRadius = 40.0
@@ -174,7 +164,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             
             // region data
             title = "Weija's Butchershop"
-            type = "rest"
+            type = "AreaA"
             //need to specify type of expense
             coordinate = CLLocationCoordinate2DMake(43.001594, -81.277124)
             regionRadius = 40.0
@@ -230,42 +220,38 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     
     //checks if user has been in proximity for x period of time
     func updateRegions() {
-        let x = UserDefaults.standard.object(forKey: "CurrentExpense2") as? String
-        let y = UserDefaults.standard.object(forKey: "CurrentExpense3") as? String
-        let z = UserDefaults.standard.object(forKey: "CurrentExpense4") as? String
 
 
-        let regionMaxVisiting = 2.5
+        let regionMaxVisiting = 1
         if NSDate().timeIntervalSince(entrytime as Date) > regionMaxVisiting {
-            if type == "rest" {
-                var temp1 = "Remember your budget for Food is $"
-                showAlert(temp1 + x!)
+            if type == "AreaA" {
+                let temp1 = "Software Area!"
+                showAlert(temp1)
             }
-            else if type == "enter" {
-                var temp2 = "Remember your budget for Entertainment is $"
-                showAlert(temp2 + y!)
+            else if type == "areaB" {
+                let temp2 = "Remember your budget for Entertainment is $"
+                showAlert(temp2)
                 
             }
-            else if type == "retail" {
-                var temp3 = "Remember your budget for Retail is  $"
-                showAlert(temp3 + z!)
+            else if type == "areaC" {
+                let temp3 = "Remember your budget for Retail is $"
+                showAlert(temp3)
                 
             }
             entered = false
         }
         let content = UNMutableNotificationContent()
         content.subtitle = "Spendings Alert"
-        if type == "rest" {
-            var temp1 = "Remember your budget for Food is $"
-            var temp2 = temp1 + x!
-            content.body = temp2
+        if type == "areaA" {
+            let temp1 = "Software Area!"
+            content.body = temp1
         }
-        else if type == "enter" {
-            content.body = ("Remember your budget for Entertainment is $" + y!)
+        else if type == "areaB" {
+            content.body = ("Remember your budget for Entertainment is $")
             
         }
-        else if type == "retail" {
-            content.body = ("Remember your budget for Retail is $" + z!)
+        else if type == "areaC" {
+            content.body = ("Remember your budget for Retail is $")
             
         }
         //content.body = "Remember your budget for _____ is $_____"
