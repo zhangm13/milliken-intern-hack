@@ -172,7 +172,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             
             // region data
             title = "IBM Markham Building D"
-            type = "AreaA"
+            type = "areaD"
             //need to specify type of expense
             coordinate = CLLocationCoordinate2DMake(43.849201, -79.337225)
             regionRadius = 30.0
@@ -232,7 +232,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
 
         let regionMaxVisiting = 1.0
         if NSDate().timeIntervalSince(entrytime as Date) > regionMaxVisiting {
-            if type == "AreaA" {
+            if type == "areaA" {
                 let temp1 = "Software Area!"
                 showAlert(temp1)
             }
