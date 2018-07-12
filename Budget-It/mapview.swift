@@ -92,13 +92,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     func setupData() {
         // check if system can monitor regions
         if CLLocationManager.isMonitoringAvailable(for: CLCircularRegion.self) {
+           
+            //-------------------A------------------------------------------------
+            
             
             // region data
-            var title = "Jackie's Sports Emporium"
+            var title = "IBM Markham Building A"
             type = "areaA"
             //need to specify type of expense
-            var coordinate = CLLocationCoordinate2DMake(42.9988376, -81.2784611)
-            var regionRadius = 5.0
+            var coordinate = CLLocationCoordinate2DMake(43.848868, -79.339597)
+            var regionRadius = 30.0
             
             // setup region
             var region = CLCircularRegion(center: CLLocationCoordinate2D(latitude: coordinate.latitude,
@@ -116,35 +119,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             map.add(circle)
             
             
+            
+            //-------------------B------------------------------------------------
+            
             // region data
-            title = "IBM Markham"
+            title = "IBM Markham Building B
             type = "areaB"
             //need to specify type of expense
-            coordinate = CLLocationCoordinate2DMake(43.849096, -79.338395)
-            regionRadius = 40.0
-            
-            // setup region
-            region = CLCircularRegion(center: CLLocationCoordinate2D(latitude: coordinate.latitude,
-                                                                         longitude: coordinate.longitude), radius: regionRadius, identifier: title)
-            locationManager.startMonitoring(for: region)
-            
-            // setup annotation
-            restaurantAnnotation = MKPointAnnotation()
-            restaurantAnnotation.coordinate = coordinate;
-            restaurantAnnotation.title = "\(title)";
-            map.addAnnotation(restaurantAnnotation)
-            
-            // setup circle
-            circle = MKCircle(center: coordinate, radius: regionRadius)
-            map.add(circle)
-            
-            
-            // region data
-            title = "Zaggy's Tech-Palace"
-            type = "areaC"
-            //need to specify type of expense
-            coordinate = CLLocationCoordinate2DMake(43.000690, -81.276636)
-            regionRadius = 40.0
+            coordinate = CLLocationCoordinate2DMake(43.848644, -79.338733)
+            regionRadius = 30.0
             
             // setup region
             region = CLCircularRegion(center: CLLocationCoordinate2D(latitude: coordinate.latitude,
@@ -161,13 +144,38 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             circle = MKCircle(center: coordinate, radius: regionRadius)
             map.add(circle)
             
+            //-------------------C------------------------------------------------
             
             // region data
-            title = "Weija's Butchershop"
+            title = "IBM Markham Building C"
+            type = "areaC"
+            //need to specify type of expense
+            coordinate = CLLocationCoordinate2DMake(43.848783, -79.337885)
+            regionRadius = 30.0
+            
+            // setup region
+            region = CLCircularRegion(center: CLLocationCoordinate2D(latitude: coordinate.latitude,
+                                                                     longitude: coordinate.longitude), radius: regionRadius, identifier: title)
+            locationManager.startMonitoring(for: region)
+            
+            // setup annotation
+            restaurantAnnotation = MKPointAnnotation()
+            restaurantAnnotation.coordinate = coordinate;
+            restaurantAnnotation.title = "\(title)";
+            map.addAnnotation(restaurantAnnotation)
+            
+            // setup circle
+            circle = MKCircle(center: coordinate, radius: regionRadius)
+            map.add(circle)
+            
+            //-------------------D------------------------------------------------
+            
+            // region data
+            title = "IBM Markham Building D"
             type = "AreaA"
             //need to specify type of expense
-            coordinate = CLLocationCoordinate2DMake(43.001594, -81.277124)
-            regionRadius = 40.0
+            coordinate = CLLocationCoordinate2DMake(43.849201, -79.337225)
+            regionRadius = 30.0
             
             // setup region
             region = CLCircularRegion(center: CLLocationCoordinate2D(latitude: coordinate.latitude,
@@ -222,7 +230,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     func updateRegions() {
 
 
-        let regionMaxVisiting = 1
+        let regionMaxVisiting = 1.0
         if NSDate().timeIntervalSince(entrytime as Date) > regionMaxVisiting {
             if type == "AreaA" {
                 let temp1 = "Software Area!"
