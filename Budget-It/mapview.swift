@@ -123,7 +123,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             //-------------------B------------------------------------------------
             
             // region data
-            title = "IBM Markham Building B
+            title = "IBM Markham Building B"
             type = "areaB"
             //need to specify type of expense
             coordinate = CLLocationCoordinate2DMake(43.848644, -79.338733)
