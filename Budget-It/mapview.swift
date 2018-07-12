@@ -127,6 +127,29 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             
             
             // region data
+            title = "IBM Markham"
+            type = "Software"
+            //need to specify type of expense
+            coordinate = CLLocationCoordinate2DMake(43.849096, -79.338395)
+            regionRadius = 5.0
+            
+            // setup region
+            region = CLCircularRegion(center: CLLocationCoordinate2D(latitude: coordinate.latitude,
+                                                                         longitude: coordinate.longitude), radius: regionRadius, identifier: title)
+            locationManager.startMonitoring(for: region)
+            
+            // setup annotation
+            restaurantAnnotation = MKPointAnnotation()
+            restaurantAnnotation.coordinate = coordinate;
+            restaurantAnnotation.title = "\(title)";
+            map.addAnnotation(restaurantAnnotation)
+            
+            // setup circle
+            circle = MKCircle(center: coordinate, radius: regionRadius)
+            map.add(circle)
+            
+            
+            // region data
             title = "Zaggy's Tech-Palace"
             type = "enter"
             //need to specify type of expense
