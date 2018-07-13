@@ -18,6 +18,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     //Map
     
     @IBOutlet weak var map: MKMapView!
+    @IBOutlet weak var labelcool: UILabel!
     
     var type = "regtype"
     
@@ -51,15 +52,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         }
         else if type == "areaB" {
                 content.body = "You are in Area B - Be cool!"
-            
         }
         else if type == "areaC" {
                 content.body = "You are in Area C - Cool Beans!"
         }
+        else if type == "areaD"{
+                content.body = "You are in Area D - Dude!"
+        }
         
         content.badge = 1
         
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
         let request = UNNotificationRequest(identifier: "timerDone", content: content, trigger: trigger)
         
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
@@ -188,7 +191,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             
             // region data
             title = "IBM Markham Building D"
-            type = "areaD"
+            type = "areaA"
             //need to specify type of expense
             coordinate = CLLocationCoordinate2DMake(43.849201, -79.337225)
             regionRadius = 30.0
@@ -247,44 +250,48 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     
     //checks if user has been in proximity for x period of time
     func updateRegions() {
-
-
-        let regionMaxVisiting = 1.0
-        if NSDate().timeIntervalSince(entrytime as Date) > regionMaxVisiting {
             if type == "areaA" {
-                let temp1 = "Software Area!"
+                let temp1 = "You have entered a new area"
+                self.labelcool.text = temp1
                 showAlert(temp1)
             }
             else if type == "areaB" {
-                let temp2 = "Remember your budget for Entertainment is $"
+                let temp2 = "You have entered a new area"
+                self.labelcool.text = temp2
                 showAlert(temp2)
-                
             }
             else if type == "areaC" {
-                let temp3 = "Remember your budget for Retail is $"
+                let temp3 = "You have entered a new area"
+                self.labelcool.text = temp3
                 showAlert(temp3)
-                
             }
+            else if type == "areaD" {
+                let temp4 = "You have entered a new area"
+                self.labelcool.text = temp4
+                showAlert(temp4)
+            }
+            
             entered = false
-        }
+        
         let content = UNMutableNotificationContent()
-        content.subtitle = "Spendings Alert"
+        content.subtitle = "DenCity Notification"
         if type == "areaA" {
-            let temp1 = "Software Area!"
+            let temp1 = "You are in area A"
             content.body = temp1
         }
         else if type == "areaB" {
-            content.body = ("Remember your budget for Entertainment is $")
-            
+            content.body = ("You are in area B")
         }
         else if type == "areaC" {
-            content.body = ("Remember your budget for Retail is $")
-            
+            content.body = ("You are in area C")
+        }
+        else if type == "areaD" {
+            content.body = ("You are in area D")
         }
         //content.body = "Remember your budget for _____ is $_____"
         content.badge = 1
         
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
         let request = UNNotificationRequest(identifier: "timerDone", content: content, trigger: trigger)
         
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
