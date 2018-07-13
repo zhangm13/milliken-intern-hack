@@ -21,6 +21,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     
     var type = "regtype"
     
+    //list of globals
+    var popA = Int(arc4random_uniform(16))
+    var popB = Int(arc4random_uniform(21))
+    var popC = Int(arc4random_uniform(31))
+    var popD = Int(arc4random_uniform(35))
+    
     let locationManager = CLLocationManager()
     // draw circle
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
@@ -112,7 +118,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             var restaurantAnnotation = MKPointAnnotation()
             restaurantAnnotation.coordinate = coordinate;
             restaurantAnnotation.title = "\(title)";
-            restaurantAnnotation.subtitle = "Population: 12 \n Availability: Available \n Average Population in the Week: 10 \n Store Times: 9am-5pm \n Best Times: 10am-11am \n Worst Times: 9am-10am, 12pm - 5pm";
+            restaurantAnnotation.subtitle = "Population: " + "\(popA)";
+            restaurantAnnotation.subtitle?.append("\n Availability: Available \n Average Population in the Week: 10 \n Store Times: 9am-5pm \n Best Times: 10am-11am \n Worst Times: 9am-10am, 12pm - 5pm")
+            
             map.addAnnotation(restaurantAnnotation)
             
             // setup circle
@@ -139,7 +147,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             restaurantAnnotation = MKPointAnnotation()
             restaurantAnnotation.coordinate = coordinate;
             restaurantAnnotation.title = "\(title)";
-            restaurantAnnotation.subtitle = "Population: 23 \n Availability: Busy \n Average Population in the Week: 20 \n Store Times: 9am-5pm \n Best Times: 9am-1pm \n Worst Times: 2pm - 5pm";
+            restaurantAnnotation.subtitle = "Population: " + "\(popB)";
+            restaurantAnnotation.subtitle?.append("\n Availability: Busy \n Average Population in the Week: 20 \n Store Times: 9am-5pm \n Best Times: 10am-11am \n Worst Times: 9am-10am, 12pm - 5pm")
             map.addAnnotation(restaurantAnnotation)
             
             // setup circle
@@ -164,7 +173,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             restaurantAnnotation = MKPointAnnotation()
             restaurantAnnotation.coordinate = coordinate;
             restaurantAnnotation.title = "\(title)";
-            restaurantAnnotation.subtitle = "Population: 34 \n Availability: Available \n Average Population in the Week: 30 \n Store Times: 9am-5pm \n Best Times: 9am-10am \n Worst Times: 12pm - 5pm";
+            restaurantAnnotation.subtitle = "Population: " + "\(popC)";
+            restaurantAnnotation.subtitle?.append("\n Availability: Available \n Average Population in the Week: 30 \n Store Times: 9am-5pm \n Best Times: 10am-11am \n Worst Times: 9am-10am, 12pm - 5pm")
             map.addAnnotation(restaurantAnnotation)
             
             // setup circle
@@ -189,7 +199,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             restaurantAnnotation = MKPointAnnotation()
             restaurantAnnotation.coordinate = coordinate;
             restaurantAnnotation.title = "\(title)";
-            restaurantAnnotation.subtitle = "Population: 45 \n Availability: Super Busy! \n Average Population in the Week: 30 \n Store Times: 9am-5pm \n Best Times: 9am-11am \n Worst Times: 12pm - 5pm";
+            restaurantAnnotation.subtitle = "Population: " + "\(popD)";
+            restaurantAnnotation.subtitle?.append("\n Availability: Super Busy! \n Average Population in the Week: 30 \n Store Times: 9am-5pm \n Best Times: 10am-11am \n Worst Times: 9am-10am, 12pm - 5pm")
             map.addAnnotation(restaurantAnnotation)
             
             // setup circle
