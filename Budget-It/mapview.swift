@@ -21,7 +21,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     
     var type = "regtype"
     
-    //list of globals
+    //timer
+    var timer: Timer!
+    
+    //list of globals popN
     var popA = Int(arc4random_uniform(16))
     var popB = Int(arc4random_uniform(21))
     var popC = Int(arc4random_uniform(31))
@@ -239,6 +242,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         if (entered == true) {
             updateRegions()
         }
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: true)
     }
     
     //checks if user has been in proximity for x period of time
@@ -302,6 +306,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         self.present(alert, animated: true, completion: nil)
     }
     
+    func runTimedCode(){
+        popA = Int(arc4random_uniform(16))
+        popB = Int(arc4random_uniform(21))
+        popC = Int(arc4random_uniform(31))
+        popD = Int(arc4random_uniform(35))
+        
+        self.setupData()
+    }
     
 }
 
