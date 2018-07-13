@@ -112,6 +112,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             var restaurantAnnotation = MKPointAnnotation()
             restaurantAnnotation.coordinate = coordinate;
             restaurantAnnotation.title = "\(title)";
+            restaurantAnnotation.subtitle = "Population: 12 \n Availability: Available \n Average Population in the Week: 10 \n Store Times: 9am-5pm \n Best Times: 10am-11am \n Worst Times: 9am-10am, 12pm - 5pm";
             map.addAnnotation(restaurantAnnotation)
             
             // setup circle
@@ -138,6 +139,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             restaurantAnnotation = MKPointAnnotation()
             restaurantAnnotation.coordinate = coordinate;
             restaurantAnnotation.title = "\(title)";
+            restaurantAnnotation.subtitle = "Population: 23 \n Availability: Busy \n Average Population in the Week: 20 \n Store Times: 9am-5pm \n Best Times: 9am-1pm \n Worst Times: 2pm - 5pm";
             map.addAnnotation(restaurantAnnotation)
             
             // setup circle
@@ -162,6 +164,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             restaurantAnnotation = MKPointAnnotation()
             restaurantAnnotation.coordinate = coordinate;
             restaurantAnnotation.title = "\(title)";
+            restaurantAnnotation.subtitle = "Population: 34 \n Availability: Available \n Average Population in the Week: 30 \n Store Times: 9am-5pm \n Best Times: 9am-10am \n Worst Times: 12pm - 5pm";
             map.addAnnotation(restaurantAnnotation)
             
             // setup circle
@@ -186,6 +189,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             restaurantAnnotation = MKPointAnnotation()
             restaurantAnnotation.coordinate = coordinate;
             restaurantAnnotation.title = "\(title)";
+            restaurantAnnotation.subtitle = "Population: 45 \n Availability: Super Busy! \n Average Population in the Week: 30 \n Store Times: 9am-5pm \n Best Times: 9am-11am \n Worst Times: 12pm - 5pm";
             map.addAnnotation(restaurantAnnotation)
             
             // setup circle
